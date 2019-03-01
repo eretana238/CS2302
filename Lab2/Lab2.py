@@ -7,6 +7,7 @@
 # Purpose: Sort linked lists with different sorting algorithms and figure out their time complexity
 
 import random
+import time
 
 #Node Functions
 class Node(object):
@@ -114,10 +115,11 @@ def GetLength(L):
 def Median(L):
     C = Copy(L)
     return ElementAt(C,GetLength(C)//2)
+    
 # Create random list of integers
 def random_list():
     L = List()
-    for x in range(5):
+    for x in range(250):
         n = random.randint(0,46)
         Append(L, n)
     return L
@@ -209,6 +211,9 @@ print(Bubble_sort(L))
 L = Copy(C)
 # Print(L)
 k = List()
+# start_time = time.time()
 k.head = Merge_sort(L.head)
+# end_time = time.time() - start_time
+# print(end_time)
 print(Median(k))
 

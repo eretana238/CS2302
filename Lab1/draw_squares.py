@@ -19,10 +19,7 @@ def draw_squares(ax,n,p,w):
     # Creates square pattenr based on each vertex as a median point
 def pattern(ax,n,x,y,size):
     if n>0:        
-        right_x = x+size
-        left_x = x-size
-        lower_y = y-size
-        upper_y = y+size
+        size = size/2
         # Creates new square
         q = np.array([[left_x,lower_y],[left_x,upper_y],[right_x,upper_y],[right_x,lower_y],[left_x,lower_y]])
         
@@ -36,15 +33,23 @@ def pattern(ax,n,x,y,size):
         pattern(ax,n-1,right_x,upper_y,size/2) 
         # bottom right
         pattern(ax,n-1,right_x,lower_y,size/2) 
-    
+
+def Shrink(ax,n,x,y,size):
+    size = size/2
+    left_x = x+size
+    right_x = x-size
+    down_y = y+size
+    up_y = y-size
+    q = np.array([[left_x,down_y],[left_x,up_y],[right_x,up_y],[right_x,down_y]])
+    ax.plot(q[:,0],q[:,1],color='k')
 # Comment the other figures except the one you want to view
 plt.close("all") 
 fig, ax = plt.subplots()
-pattern(ax,4,0,0,400)
-ax.set_aspect(1.0)
-ax.axis('off')
-plt.show()
-fig.savefig('squaresa.png')
+#pattern(ax,4,0,0,400)
+#ax.set_aspect(1.0)
+#ax.axis('off')
+#plt.show()
+#fig.savefig('squaresa.png')
 
 
 #pattern(ax,3,0,0,400)
@@ -58,3 +63,11 @@ fig.savefig('squaresa.png')
 #ax.axis('off')
 #plt.show()
 #fig.savefig('squaresc.png')
+
+#plt.close("all") 
+#fig, ax = plt.subplots()
+Shrink(ax,3,0,0,400)
+ax.set_aspect(1.0)
+ax.axis('off')
+plt.show()
+fig.savefig('squaresa.png')

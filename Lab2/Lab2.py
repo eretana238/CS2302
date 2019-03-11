@@ -119,7 +119,7 @@ def Median(L):
 # Create random list of integers
 def random_list():
     L = List()
-    for x in range(250):
+    for x in range(5):
         n = random.randint(0,46)
         Append(L, n)
     return L
@@ -204,15 +204,17 @@ C = random_list()
 
 L = Copy(C)
 
-# Print(L)
+Print(L)
 print(Bubble_sort(L))
-# Print(L)
+Print(L)
 
 L = Copy(C)
 # Print(L)
 k = List()
 # start_time = time.time()
+Print(k)
 k.head = Merge_sort(L.head)
+Print(k)
 # end_time = time.time() - start_time
 # print(end_time)
 print(Median(k))

@@ -20,12 +20,11 @@ def draw_tree(ax,n,x_shift,y_shift,x,y):
         draw_tree(ax,n-1,x_shift/2,y_shift,x-x_shift,y-y_shift)
         draw_tree(ax,n-1,x_shift/2,y_shift,x+x_shift,y-y_shift)
         
-        
 # Comment the other figures except the one you want to view
 start_time = time.time()
 plt.close("all")
 fig, ax = plt.subplots()
-draw_tree(ax,5,20,10,0,0)
+draw_tree(ax,4,20,10,0,0)
 ax.set_aspect(1.0)
 ax.axis('on')
 plt.show()

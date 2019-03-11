@@ -97,43 +97,55 @@ def FindAndPrint(T,k):
 
 # My own methods
 
+# Creates circle figure
 def circle(x,y,rad):
     n = int(4*rad*math.pi)
     t = np.linspace(0,6.3,n)
+    # Coordinates 
     a = x+rad*np.sin(t)
     b = y+rad*np.cos(t)
     return a,b
 
+# Create binary tree plot
 def draw_tree(T,ax,x_shift,x,y):
     if T != None:
+        # Create circle for middle node
         a,b = circle(x,y,10)
         ax.plot(a,b,color='k')
         ax.fill(a,b,'k',alpha=1)
         ax.annotate(T.item, xy=(x,y), fontsize=10, color='001', ha="center", va="center")
 
+        # Create left branch
         if T.left != None:
             draw_branch(T.left,ax,x_shift,x,y)
             draw_tree(T.left,ax,x_shift/2,x-x_shift,y-80)
             
+        # Create right branch
         if T.right != None:
             draw_branch(T.right,ax,-x_shift,x,y)
             draw_tree(T.right,ax,x_shift/2,x+x_shift,y-80)
 
+# Create branch for tree
 def draw_branch(item,ax,x_shift,x,y):
     q = np.array([[x,y],[x-x_shift,y-80]])
     ax.plot(q[:,0],q[:,1],color='k')
 
+# Search for Node with given integer element
 def Search(T,k):
     while T != None:
+        # Check left branch
         if T.item > k:
             T = T.left
+        # Check right branch
         elif T.item < k:
             T = T.right
+        # Found node
         else:
             return T
     
     return None
 
+# Convert Sorted Array list to BST
 def SortedToBST(B):
     if not B: 
         return None
@@ -151,6 +163,7 @@ def SortedToBST(B):
 
     return root
 
+# Have BST converted to sorted Array list
 def BSTToSorted(T,A):
     if T != None:
         BSTToSorted(T.left,A)
@@ -159,6 +172,7 @@ def BSTToSorted(T,A):
 
     return A
 
+# Check height of Tree
 def Height(T):
     if T == None:
         return 0
@@ -170,18 +184,20 @@ def Height(T):
     else:
         return right + 1
 
+# Print all nodes to their depth level respectively
 def PrintWithDepth(T):
     l = Height(T)
-
+    # Traverse through each depth level
     for i in range(l):
         print("Keys at depth",i,": ", end='')
         PrintLevel(T,i)
         print()
-    
 
+# Print nodes at a depth 
 def PrintLevel(T,i):
     if T == None:
         return
+    # Print elements
     if i == 0:
         print("%d " %(T.item), end='')
     elif i > 0:
@@ -216,7 +232,7 @@ fig.savefig('binarytree.png')
 
 # Problem 2
 print("Question 2")
-print(Search(T,9).item)
+print(Search(T,100).item)
 
 # Problem 3
 print("Question 3")

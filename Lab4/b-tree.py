@@ -1,10 +1,10 @@
 # Course: 2302-001
 # Author: Esteban Retana
-# Assignment: 
+# Assignment: Create functions to read the B-Tree further
 # Instructor: Olac Fuentes
 # TA: Anindita Nath
-# Date of last modification:3/27/19
-# Purpose: 
+# Date of last modification:3/28/19
+# Purpose: Understand the traversal of B-Trees and how to manipulate them
 
 class BTree(object):
     # Constructor

@@ -1,6 +1,10 @@
-# Code to implement a B-tree 
-# Programmed by Olac Fuentes
-# Last modified February 28, 2019
+# Course: 2302-001
+# Author: Esteban Retana
+# Assignment: 
+# Instructor: Olac Fuentes
+# TA: Anindita Nath
+# Date of last modification:3/27/19
+# Purpose: 
 
 class BTree(object):
     # Constructor
@@ -71,7 +75,7 @@ def height(T):
         return 0
     return 1 + height(T.child[0])
         
-        
+
 def Search(T,k):
     # Returns node where k is, or None if k is not in the tree
     if k in T.item:
@@ -110,7 +114,10 @@ def SearchAndPrint(T,k):
         print(k,'found',end=' ')
         print('node contents:',node.item)
 
+# Converts BTree to sorted array list
 def BTreeToSorted(T):
+    if T == None:
+        return
     t = []
     if T.isLeaf:
         return T.item
@@ -119,7 +126,7 @@ def BTreeToSorted(T):
             t += BTreeToSorted(T.child[i]) + [T.item[i]]
         t += BTreeToSorted(T.child[len(T.item)])
     return t
-
+# Finds out the minimum node at a depth level
 def MinAtDepth(T,k):
     # Find out if given depth is possible to search
     h = height(T)
@@ -131,6 +138,7 @@ def MinAtDepth(T,k):
     else:
         return MinAtDepth(T.child[0],k-1)
 
+# Finds out the max value from a certain depth level
 def MaxAtDepth(T,k):
     # Find out if given depth is possible to search
     h = height(T)
@@ -142,6 +150,7 @@ def MaxAtDepth(T,k):
     else:
         return MaxAtDepth(T.child[len(T.item)],k-1)
 
+# Determiness the amount of nodes at a depth level
 def NodesAtDepth(T,k):
     t = 0
     # Find out if given depth is possible to search
@@ -159,6 +168,7 @@ def NodesAtDepth(T,k):
 
     return t
 
+# Prints all nodes values at a certain depth level
 def PrintAtDepth(T,k):
     h = height(T)
     if k > h:
@@ -172,6 +182,7 @@ def PrintAtDepth(T,k):
         for i in range(len(T.item)):
             print(T.item[i], end=' ')
 
+# Finds out the total number of full nodes
 def FullNodes(T):
     t = 0
     if T.max_items == len(T.item):
@@ -184,6 +195,7 @@ def FullNodes(T):
         t += FullNodes(T.child[len(T.item)])
     return t
 
+# Finds out the toal number of full leaf nodes
 def FullLeafs(T):
     t = 0
     if T.isLeaf:
@@ -199,59 +211,116 @@ def FullLeafs(T):
 # def FindDepth(T,k):
 #     if 
 
-L = []
-for i in range(100):
-    L[i] = i + 1
-    print(L)
-# No full nodes
-# L = [30, 50, 10, 20, 60, 70, 100, 40, 90, 80, 110, 120, 1, 11 , 3, 4, 5,105, 115, 200, 2, 45, 6]
-# Top full node
-# L = [30, 50, 10, 20, 60, 70, 100, 40, 90, 80, 110, 120, 1, 11 , 3, 4, 5,105, 115, 200]
-# 3 full leaft
-# L = [30, 50, 10, 20, 60, 70, 100, 40, 90, 80, 110, 120, 1, 11 , 3, 4, 5,105, 115, 2, 45,46,47]
 # L = []
-T = BTree()  
-for i in L:
+# for i in range(100):
+#     L[i] = i + 1
+#     print(L)
+
+
+# No full nodes
+M = [30, 50, 10, 20, 60, 70]
+# Top full node
+N = [30, 50, 10, 20, 60, 70, 100, 40, 90, 80, 110, 120, 1, 11 , 3, 4, 5,105, 115, 200]
+# full leaft
+O = [30, 50, 10, 20, 60, 70, 100, 40, 90, 80, 110, 120, 1, 11 , 3, 4, 5, 105, 109, 115, 2, 45, 46, 47]
+
+T = BTree([])
+
+U = BTree()
+
+V = BTree()
+
+W = BTree()
+
+# for i in L:
+#     Insert(T,i)
+
+for i in M:
     # print('Inserting',i)
-    Insert(T,i)
-    # PrintD(T,'') 
+    Insert(U,i)
+    # PrintD(W,'') 
+    # Print(T)
+    # print('\n####################################')
+
+for i in N:
+    # print('Inserting',i)
+    Insert(V,i)
+    # PrintD(W,'') 
+    # Print(T)
+    # print('\n####################################')
+
+for i in O:
+    # print('Inserting',i)
+    Insert(W,i)
+    # PrintD(W,'') 
     # Print(T)
     # print('\n####################################')
     
+
 # SearchAndPrint(T,60)
 # SearchAndPrint(T,200)
 # SearchAndPrint(T,25)
 # SearchAndPrint(T,20)
 
 # Question 1
-# print("Question 1")
-# print(height(T))
+print("Question 1")
+print(height(T))
+print(height(U))
+print(height(V))
+print(height(W))
 
 # Question 2
-# print("Question 2")
-# print(len(L))
-# print(len(BTreeToSorted(T)))
+print("Question 2")
+print(BTreeToSorted(T))
+print(BTreeToSorted(U))
+print(BTreeToSorted(V))
+print(BTreeToSorted(W))
 
 # Question 3
-# print("Question 3")
-# print(MinAtDepth(T,2))
+print("Question 3")
+print(MinAtDepth(T,1))
+print(MinAtDepth(U,1))
+print(MinAtDepth(V,2))
+print(MinAtDepth(W,2))
 
 # Question 4
-# print("Question 4")
-# print(MaxAtDepth(T,2))
+print("Question 4")
+print(MaxAtDepth(T,1))
+print(MaxAtDepth(U,1))
+print(MaxAtDepth(V,2))
+print(MaxAtDepth(W,2))
 
 # Question 5
-# print("Question 5")
-# print(NodesAtDepth(T,1))
+print("Question 5")
+print(NodesAtDepth(T,1))
+print(NodesAtDepth(U,1))
+print(NodesAtDepth(V,2))
+print(NodesAtDepth(W,2))
 
 # Question 6
-# print("Question 6")
-# PrintAtDepth(T,2)
+print("Question 6")
+PrintAtDepth(T,1)
+print()
+PrintAtDepth(U,1)
+print()
+PrintAtDepth(V,2)
+print()
+PrintAtDepth(W,2)
+print()
 
 # Question 7
-# print("Question 7")
-# print(FullNodes(T))
+print("Question 7")
+print(FullNodes(T))
+print(FullNodes(U))
+print(FullNodes(V))
+print(FullNodes(W))
 
 # Question 8
-# print("Question 8")
-# print(FullLeafs(T))
+print("Question 8")
+print(FullLeafs(T))
+print(FullLeafs(U))
+print(FullLeafs(V))
+print(FullLeafs(W))
+
+# Question 9
+# print("Question 9")

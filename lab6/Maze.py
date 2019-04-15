@@ -1,9 +1,9 @@
 # Course: 2302-001
 # Author: Esteban Retana
-# Assignment: Use disjoint forest to build a maze
+# Assignment: Use Disjoint forest to build a maze
 # Instructor: Olac Fuentes
 # TA: Eduardo Lara
-# Date of last modification:4/16/19
+# Date of last modification:4/14/19
 # Purpose: To be able to create a good random maze with disjoint forests
 import matplotlib.pyplot as plt
 import numpy as np

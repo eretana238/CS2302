@@ -211,7 +211,7 @@ def BFS(G,v):
                 prev[t] = u
                 Q.append(t)
     return prev
-    
+
 # Searches for solution using Depth First Search
 def DFS(G,source):
     visited[source] = True
@@ -225,24 +225,24 @@ def DFS(G,source):
 def DFS_iter(G,source):
     visited = [False] * len(G)
     prev = [-1] * len(G)
-    Q = []
-    Q.append(source)
+    stack = []
+    stack.append(source)
     visited[source] = True
-    # Does loop while the Q is not empty
-    while len(Q) != 0:
+    # Does loop while the stack is not empty
+    while len(stack) != 0:
         # Obtains first value
-        u = Q.pop(-1)
+        u = stack.pop(-1)
         # Visits every vertex from index obtained
         for t in G[u]:
             if visited[t] == False:
                 visited[t] = True
                 prev[t] = u
-                Q.append(t)
+                stack.append(t)
     return prev
-            
+
 plt.close("all")
-maze_rows = 15
-maze_cols = 15
+maze_rows = 60
+maze_cols = 60
 
 walls = wall_list(maze_rows,maze_cols)
 

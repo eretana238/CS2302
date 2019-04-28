@@ -1,6 +1,6 @@
 # Course: 2302-001
 # Author: Esteban Retana
-# Assignment: Solve the maze from lab 6(building maze with disjoint set forest)
+# Assignment: Solve the maze from lab 6 (building maze with disjoint set forest)
 # Instructor: Olac Fuentes
 # TA: Mali and Dita
 # Date of last modification:4/28/19

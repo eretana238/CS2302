@@ -241,8 +241,8 @@ def DFS_iter(G,source):
     return prev
 
 plt.close("all")
-maze_rows = 60
-maze_cols = 60
+maze_rows = 15
+maze_cols = 15
 
 walls = wall_list(maze_rows,maze_cols)
 

@@ -76,4 +76,8 @@ if p:
     print('s1:',s1)
     print('s2:',s2)
 else:
+<<<<<<< HEAD
     print('Set does not contain partition')
+=======
+    print('')
+>>>>>>> 8800101137d0728ee2e6dc56829cd0708baf82cf

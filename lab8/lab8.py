@@ -1,3 +1,11 @@
+# Course: 2302-001
+# Author: Esteban Retana
+# Assignment: Write a program to discover trigonometric identities, and find if there is a valid partition on a given set
+# Instructor: Olac Fuentes
+# TA: Mali and Dita
+# Date of last modification:4/28/19
+# Purpose: Use randomized algorithms to check equality between two trig identities and use backtracking to find a valid partition
+
 import random
 import numpy as np
 from math import *
@@ -23,18 +31,23 @@ trig = [
     '1/cos(t)'
 ]
 
+# Creates random choice of trig function
 def random_trig_func():
     x = random.choice(trig)
     return x
 
+# Chooses two trig functions and compares them to determine if they're similar
 def trig_equality(tries=1000,tolerance=0.001):
     count = 0
     t = random.uniform(-math.pi,math.pi)
     for i in range(tries):
+        # Assigns random trig function to s1 and s2
         s1 = random_trig_func()
         s2 = random_trig_func()
+        # Obtain answer from trig function
         x = eval(s1)
         y = eval(s2)
+        # figures out if both trig identities are similar
         if np.abs(x-y) < tolerance:
             count += 1
             print(s1,"|",s2,"| Count:",count)
@@ -53,10 +66,13 @@ def subsetsum(S,last,goal):
     else:
         return subsetsum(S,last-1,goal) # Don't take S[last]
 
+# Finds out if there's partition in set
 def partition(n):
     s = 0
+    # Finds sum of n
     for i in n:
         s += i
+    # Determines if sum is odd, then its false
     if s % 2 != 0:
         return False
 

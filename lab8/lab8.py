@@ -3,7 +3,7 @@
 # Assignment: Write a program to discover trigonometric identities, and find if there is a valid partition on a given set
 # Instructor: Olac Fuentes
 # TA: Mali and Dita
-# Date of last modification:4/28/19
+# Date of last modification:5/09/19
 # Purpose: Use randomized algorithms to check equality between two trig identities and use backtracking to find a valid partition
 
 import random

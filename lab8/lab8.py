@@ -93,3 +93,4 @@ if p:
     print('s2:',s2)
 else:
     print('Set does not contain partition')
+
